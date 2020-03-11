@@ -48,7 +48,7 @@ def foods_parsing(request):
 
 
     foods_list = []
-    i = 0
+    i = 1
     for line1, line2 in zip(restaurants[0:], food_kinds[0:]):
         # print(line1.get_text(), end= ': ')
         # print(line2.get_text())
