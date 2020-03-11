@@ -10,7 +10,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="13.209.21.146">
+      <Link color="inherit" href="http://13.209.21.146">
         성기동 Website
       </Link>{' '}
       {new Date().getFullYear()}
