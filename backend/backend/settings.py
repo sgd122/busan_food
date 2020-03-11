@@ -41,7 +41,10 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APPS = ["rest_framework"]
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "debug_toolbar",
+]
 
 PROJECT_APPS = [
     "foods.apps.FoodsConfig",
@@ -57,6 +60,7 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -64,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "backend.middleware.cors_response_middleware",
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -146,3 +151,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, ".static")
 
 MEDIA_URL = "/media_dj/"
 MEDIA_ROOT = join(BASE_DIR, "media")
+
+# X_FRAME_OPTIONS = "SAMEORIGN"
+# INTERNAL_IPS = ["127.0.0.1"]
+
+X_FRAME_OPTIONS = 'ALLOWALL'
+# XS_SHARING_ALLOWED_METHODS = ['POST', 'GET', 'OPTIONS', 'PUT', 'DELETE']
