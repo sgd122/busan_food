@@ -15,6 +15,7 @@ export function Food() {
         { id: 8, title: '천운숯불갈비', content: '점심특선(고기/된장찌개)', images: img03 },
         { id: 9, title: '철호국밥', content: '국밥', images: img03 },
         { id: 10, title: '더도이종가집', content: '국밥', images: img03 },
+        { id: 11, title: '오쇼김밥', content: '분식(라면/김밥/오므라이스...)', images: img03 },
     ];
 
     return FoodList;
