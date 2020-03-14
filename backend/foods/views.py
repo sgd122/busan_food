@@ -2,7 +2,8 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import HttpResponse,Http404, HttpResponseNotFound
-import requests
+import requests,re
+# import cssutils
 from bs4 import BeautifulSoup
 
 # Create your views here.
@@ -28,38 +29,36 @@ def foods_list(request):
 
 @api_view(['GET', 'POST'])
 def foods_parsing(request):
-    params = {
-        # 'query': q
-        'lat':"35.136800",
-        'lng':"129.069898",
-        'dis':"500"
-    }    
-    # 응답 get 요청
-    # html = req.get('http://www.diningcode.com/list.php?', params=params).text
-
-    dining_url = "https://www.diningcode.com/list.php?query=&lat=35.136800&lng=129.069898&dis=500";
-    html = requests.get(dining_url).text
-
-    soup = BeautifulSoup(html, 'html.parser')
-    rank_list = []
-    
-    restaurants = soup.findAll("span",attrs={"class":"btxt"})
-    food_kinds = soup.findAll("span", attrs={"class":"stxt"})
-
-
     foods_list = []
+    page = 1
     i = 1
-    for line1, line2 in zip(restaurants[0:], food_kinds[0:]):
-        # print(line1.get_text(), end= ': ')
-        # print(line2.get_text())
-        foods_list.append({ 'id': i, 'title': line1.get_text(), 'content': line2.get_text() })
-        i+=1
+    dining_url = "https://www.diningcode.com/list.php"
+    
+    for page in range(2): 
+        params = {            
+            'lat':"35.136800",
+            'lng':"129.069898",
+            'dis':"500",
+            'page':page+1
+        }        
+        html = requests.get(dining_url, params=params).text # 응답 get 요청
+        soup = BeautifulSoup(html, 'html.parser')        
+        restaurants = soup.findAll("span",attrs={"class":"btxt"})
+        food_kinds = soup.findAll("span", attrs={"class":"stxt"})        
+        img_kinds = soup.findAll("span", attrs={"class":"img"})        
 
-    # 1위 ~10위 식당이름하고, 링크
-    # for idx, tag in enumerate(soup.select('div.localeft-cont span'), 1):
-    #     rank_list.append('{}.{}'.format(idx, tag.text) + ' ' + 'http://www.diningcode.com/' + tag['href'])
+        # div_style = soup.findAll("span", attrs={"class":"img"})['style']
+        # style = cssutils.parseStyle(div_style)
+        # url = style['background-image']
+        for line1, line2, line3 in zip(restaurants[0:], food_kinds[0:], img_kinds[0:]):            
+            # print("::line3::",line3.get("style"))
+            style = line3.get("style")
+            matched = re.search(r'(https?://[\da-zA-Z-0-9_\./]+)', style)
+            
+            img_url = matched.group(1)
+            print("::img_url::",img_url)
 
-    # print("::rank_list::",rank_list)
-    # return rank_list
+            foods_list.append({ 'id': i, 'title': line1.get_text(), 'content': line2.get_text(), 'images':img_url })
+            i+=1
 
     return Response(foods_list)
