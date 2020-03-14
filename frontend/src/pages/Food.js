@@ -8,7 +8,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import * as common from "../settings/List";
-
+// import apiSearch from "../api/food/apiSearch";
 import img01 from '../img/food_img01.jpg';
 import img02 from '../img/food_img02.jpg';
 import img03 from '../img/food_img03.jpg';
@@ -42,6 +42,8 @@ export default function Food() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [rand, setRand] = React.useState(1);
+
+    // apiSearch();
 
     const handleClick = () => {
         const min = 1;

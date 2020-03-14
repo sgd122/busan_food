@@ -34,7 +34,7 @@ def foods_parsing(request):
     i = 1
     dining_url = "https://www.diningcode.com/list.php"
     
-    for page in range(2): 
+    for page in range(10): 
         params = {            
             'lat':"35.136800",
             'lng':"129.069898",
@@ -47,11 +47,7 @@ def foods_parsing(request):
         food_kinds = soup.findAll("span", attrs={"class":"stxt"})        
         img_kinds = soup.findAll("span", attrs={"class":"img"})        
 
-        # div_style = soup.findAll("span", attrs={"class":"img"})['style']
-        # style = cssutils.parseStyle(div_style)
-        # url = style['background-image']
         for line1, line2, line3 in zip(restaurants[0:], food_kinds[0:], img_kinds[0:]):            
-            # print("::line3::",line3.get("style"))
             style = line3.get("style")
             matched = re.search(r'(https?://[\da-zA-Z-0-9_\./]+)', style)
             

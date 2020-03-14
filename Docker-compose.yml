@@ -27,3 +27,16 @@ services:
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
+  food_app_storybook:
+    container_name: food_app
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile-Storybook
+    volumes:
+      - "./frontend:/app"
+      - "/app/node_modules"
+    ports:
+      - "9009:9009"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
