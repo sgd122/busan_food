@@ -5,13 +5,9 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import * as common from "../settings/List";
-// import apiSearch from "../api/food/apiSearch";
-import img01 from '../img/food_img01.jpg';
-import img02 from '../img/food_img02.jpg';
-import img03 from '../img/food_img03.jpg';
+import apiSearch from "../api/food/apiSearch";
 
 const useStyles = makeStyles({
     container: {
@@ -43,7 +39,7 @@ export default function Food() {
     const [open, setOpen] = React.useState(false);
     const [rand, setRand] = React.useState(1);
 
-    // apiSearch();
+    apiSearch({ "test": 11 });
 
     const handleClick = () => {
         const min = 1;

@@ -49,10 +49,8 @@ def foods_parsing(request):
 
         for line1, line2, line3 in zip(restaurants[0:], food_kinds[0:], img_kinds[0:]):            
             style = line3.get("style")
-            matched = re.search(r'(https?://[\da-zA-Z-0-9_\./]+)', style)
-            
+            matched = re.search(r'(https?://[\da-zA-Z-0-9_\./]+)', style)        
             img_url = matched.group(1)
-            print("::img_url::",img_url)
 
             foods_list.append({ 'id': i, 'title': line1.get_text(), 'content': line2.get_text(), 'images':img_url })
             i+=1
