@@ -1,0 +1,31 @@
+import ImgMediaCard from "../index";
+import {
+  Story,
+  Props,
+  Description,
+  Preview
+} from "@storybook/addon-docs/blocks";
+
+# ImgMediaCard
+
+<ImgMediaCard
+  id="1"
+  Images="https://s3-ap-northeast-1.amazonaws.com/dcreviewsresized/300_300_20190522_173332.jpg"
+  Title="Title"
+  Content="Content"
+/>
+<Description of={ImgMediaCard} />
+
+## Props
+
+이 컴포넌트에서 사용되는 Props 들을 볼까요?
+
+<Props of={ImgMediaCard} />
+
+## ImgMediaCard
+
+<Preview>
+  <Story id="components-basic-imgmediacard--standard" />
+</Preview>
+
+ImgMediaCard 입니다.

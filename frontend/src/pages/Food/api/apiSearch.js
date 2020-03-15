@@ -1,4 +1,4 @@
-import api from "../../settings/Api";
+import api from "../../../settings/Api";
 
 export default function apiSearch({ params }) {
     return api.get('foods/parsing/', params)
