@@ -38,5 +38,9 @@ hello.story = {
     name: 'Default'
 };
 
-export const standard = () => <ImgMediaCard name="Storybook" />;
-export const big = () => <ImgMediaCard name="Storybook" big />;
+export const standard = () => (
+    <ImgMediaCard
+        Title="Storybook"
+        Content="내용"
+        Images="https://s3-ap-northeast-1.amazonaws.com/dcreviewsresized/300_300_20190522_173332.jpg" />
+);
