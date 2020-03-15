@@ -28,9 +28,7 @@ export const hello = () => {
             Content={content}
             Images={images}
             Title={title}
-
-        // onHello={action('onHello')}
-        // onBye={action('onBye')}
+            onCardClick={action('onCardClick')}
         />
     );
 };
