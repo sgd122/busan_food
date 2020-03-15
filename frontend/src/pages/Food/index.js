@@ -42,8 +42,12 @@ export default function Food() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [rand, setRand] = React.useState(1);
+    const params = {};
 
-    apiSearch({ "test": 11 });
+    apiSearch(params)
+        .then(newState => {
+            // setState(prev => ({ ...prev, ...newState }));
+        });
 
     const handleClick = () => {
         const min = 1;
