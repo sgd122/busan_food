@@ -16,7 +16,7 @@ export default {
     }
 };
 
-export const hello = () => {
+export const storybook = () => {
     // knobs 만들기
     const id = text('id', '1');
     const content = text('content', "Content");
@@ -32,7 +32,7 @@ export const hello = () => {
         />
     );
 };
-hello.story = {
+storybook.story = {
     name: 'Default'
 };
 
