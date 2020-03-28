@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import ProTip from './ProTip';
-import Food from './pages/Food';
+import Foods from './pages/Foods';
 
 function Copyright() {
   return (
@@ -31,7 +31,7 @@ export default function App() {
         </div>
 
         {/* Pages */}
-        <Food />
+        <Foods />
 
         {/* Footer */}
         <ProTip />

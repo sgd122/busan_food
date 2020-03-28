@@ -23,11 +23,13 @@ const useStyles = makeStyles({
     },
 });
 
-const ImgMediaCard = ({ Content, Title, Images, onCardClick, ...props }) => {
+const ImgMediaCard = ({ Content, Title, Images, onCardClick, disabled, ...props }) => {
     const classes = useStyles();
     const handleClick = (id) => {
         // onCardClick
-        alert(id)
+        if (!disabled) {
+            alert(id)
+        }
     }
 
     return (
@@ -85,12 +87,18 @@ ImgMediaCard.propTypes = {
     Images: PropTypes.string,
     /** Card 버튼 누를 때 호출할 함수 */
     onCardClick: PropTypes.func,
+    /** 카드에 대한 disabled처리 */
+    disabled: PropTypes.bool,
 };
 
 ImgMediaCard.defaultProps = {
     id: 1,
-    Title: ""
+    Title: "",
+    disabled: false
 };
 
+const equalComparison = (prevProps, nextProps) =>
+    prevProps.id === nextProps.id;
 
-export default ImgMediaCard;
+export default React.memo(ImgMediaCard, equalComparison);
+
