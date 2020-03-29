@@ -5,6 +5,8 @@ import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import ProTip from './ProTip';
 import Foods from './pages/Foods';
+import HideAppBar from "./components/HideAppBar";
+import Toolbar from '@material-ui/core/Toolbar';
 
 function Copyright() {
   return (
@@ -22,14 +24,11 @@ function Copyright() {
 export default function App() {
   return (
     <Container maxWidth="xl">
-      <Box my={4}>
-        {/* Header */}
-        <div style={{ marginBottom: 30, textAlign: 'center' }}>
-          <Typography variant="h4" component="h1" gutterBottom>
-            오늘의 메뉴!
-          </Typography>
-        </div>
+      {/* Header */}
+      <HideAppBar Title={"오늘의메뉴"} />
+      <Toolbar />
 
+      <Box my={4}>
         {/* Pages */}
         <Foods />
 
