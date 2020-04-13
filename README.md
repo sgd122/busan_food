@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Link
+
+[Frontend(React.js)](http://13.209.3.103)
+[Backend(Django)](http://13.209.3.103:8000)
+[Storybook(React.js)](http://13.209.3.103:9009)
+
 ## Docker
 
     docker build -t sgd122/busan_food:1.0 .
