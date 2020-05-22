@@ -2,9 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Link
 
-[Frontend(React.js)](http://13.209.3.103)
-[Backend(Django)](http://13.209.3.103:8000)
-[Storybook(React.js)](http://13.209.3.103:9009)
+[Frontend(React.js)](http://13.125.210.53)
+[Backend(Django)](http://13.125.210.53:8000)
+[Storybook(React.js)](http://13.125.210.53:9009)
 
 ## Docker
 
