@@ -18,7 +18,9 @@ sudo docker run -p 8000:8000 --rm -it -d  sgd122/busan_food_backend:1.0
 
 ## Docker-compose
 
+```
 docker-compose up -d --build
+```
 
 ## 참조
 
