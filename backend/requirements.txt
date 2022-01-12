@@ -24,7 +24,7 @@ mysqlclient==1.4.6
 numpy==1.18.0
 pandas==0.25.3
 pathspec==0.7.0
-pipenv==2018.11.26
+pipenv==2022.1.8
 pycodestyle==2.5.0
 pyflakes==2.1.1
 PyJWT==1.7.1
